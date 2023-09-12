@@ -1,10 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-
-# Replace 'YOUR_WEBHOOK_URL' with the actual webhook URL
 webhook_url = 'https://discord.com/api/webhooks/1147838120084115526/q7aP3YKBUNNJYrfTXWDP8a0DaN_iZbzXLK7dv6zUx5FgbRQltfNc-igrCsH9jkRWpDkr'
-
-# Define a list of dictionaries for each newspaper
 newspapers = [
     {
         'name': 'O Jogo',
@@ -19,8 +15,6 @@ newspapers = [
         'url': 'https://www.vercapas.com/capa/a-bola.html',
     },
 ]
-
-# Create a function to send a newspaper cover
 def send_newspaper_cover(newspaper):
     response = requests.get(newspaper['url'])
     if response.status_code == 200:
@@ -50,6 +44,5 @@ def send_newspaper_cover(newspaper):
     else:
         print(f'Failed to fetch {newspaper["name"]} webpage. Status code: {response.status_code}')
 
-# Loop through the list of newspapers and send their covers
 for newspaper in newspapers:
     send_newspaper_cover(newspaper)
